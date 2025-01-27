@@ -1,0 +1,68 @@
+{
+  "students": [
+    {
+      "id": "S1",
+      "name": "Aryan Singh",
+      "gender": "Male",
+      "age": 22,
+      "university": "IIT Delhi",
+      "skills": [
+        "Java",
+        "Spring Boot"
+      ]
+    },
+    {
+      "id": "S2",
+      "name": "Anita",
+      "gender": "Female",
+      "age": 22,
+      "university": "NIT Jalandhar",
+      "skills": [
+        "Javascript",
+        "NodeJs"
+      ]
+    },
+    {
+      "id": "S3",
+      "name": "Ravi Verma",
+      "gender": "Male",
+      "age": 22,
+      "university": "BITS Pilani",
+      "projects": [
+        "Portfolio Website"
+      ]
+    },
+    {
+      "id": "S4",
+      "name": "Priya Sharma",
+      "gender": "Female",
+      "age": 21,
+      "university": "IIT Kharagpur",
+      "skills": [
+        "HTML",
+        "JavaScript"
+      ]
+    },
+    {
+      "id": "S5",
+      "name": "Kabir Chopra",
+      "gender": "Male",
+      "age": 24,
+      "university": "IIT Bombay",
+      "projects": [
+        "Data Visualization Dashboard"
+      ]
+    },
+    {
+      "id": "S6",
+      "name": "Sagar Vishwakarma",
+      "gender": "Male",
+      "age": 23,
+      "university": "IIIT Bhagalpur",
+      "skills": [
+        "C++",
+        "Java"
+      ]
+    }
+  ]
+}
