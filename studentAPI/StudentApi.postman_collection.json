@@ -8,18 +8,88 @@
 	"item": [
 		{
 			"name": "Get all student data",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {\r",
+							"    pm.response.to.have.status(200);\r",
+							"});\r",
+							"\r",
+							"pm.test(\"Status code is valid\", function () {\r",
+							"    pm.expect([200, 201, 202]).to.include(pm.response.code);\r",
+							"});\r",
+							"pm.test(\"Status code text is OK\", function () {\r",
+							"    pm.response.to.have.status(\"OK\");\r",
+							"});\r",
+							"pm.test(\"Response status is correct\", function () {\r",
+							"    pm.response.to.have.status(200);\r",
+							"    pm.expect(pm.response.code).to.equal(200);\r",
+							"});\r",
+							"pm.test(\"Validating multiple status codes\", function () {\r",
+							"    pm.expect([200, 201]).to.include(pm.response.code);\r",
+							"});\r",
+							"pm.test(\"Header contains X-Powered-By\", function () {\r",
+							"    pm.response.to.have.header(\"X-Powered-By\", \"tinyhttp\");\r",
+							"});\r",
+							"\r",
+							"pm.test(\"Response time is less than 200ms\", function () {\r",
+							"    pm.expect(pm.response.responseTime).to.be.below(200);\r",
+							"});\r",
+							"pm.test(\"Response is of type JSON\", function () {\r",
+							"    pm.response.to.have.header(\"Content-Type\", \"application/json\");\r",
+							"});\r",
+							"pm.test(\"JSON array contains expected values\", function () {\r",
+							"    const responseData = pm.response.json();\r",
+							"    pm.expect(responseData.skills).to.include(\"Java\");\r",
+							"});\r",
+							"pm.test(\"JSON fields validation\", function () {\r",
+							"    const jsonData = pm.response.json();\r",
+							"    pm.expect(jsonData).to.have.property(\"name\");\r",
+							"    pm.expect(jsonData).to.have.property(\"age\");\r",
+							"});\r",
+							"\r",
+							"const schema = {\r",
+							"    \"type\": \"object\",\r",
+							"    \"properties\": {\r",
+							"        \"id\": { \"type\": \"string\" },\r",
+							"        \"name\": { \"type\": \"string\" },\r",
+							"        \"gender\": { \"type\": \"string\" },\r",
+							"        \"age\": { \"type\": \"integer\" },\r",
+							"        \"university\": { \"type\": \"string\" },\r",
+							"        \"skills\": {\r",
+							"            \"type\": \"array\",\r",
+							"            \"items\": { \"type\": \"string\" }\r",
+							"        }\r",
+							"    },\r",
+							"    \"required\": [\"id\", \"name\", \"gender\", \"age\", \"university\", \"skills\"]\r",
+							"};\r",
+							"\r",
+							"pm.test(\"JSON schema validation\", function () {\r",
+							"    pm.response.to.have.jsonSchema(schema);\r",
+							"});\r",
+							"\r",
+							""
+						],
+						"type": "text/javascript",
+						"packages": {}
+					}
+				}
+			],
 			"request": {
 				"method": "GET",
 				"header": [],
 				"url": {
-					"raw": "http://localhost:3000/students",
+					"raw": "http://localhost:3000/students/S1",
 					"protocol": "http",
 					"host": [
 						"localhost"
 					],
 					"port": "3000",
 					"path": [
-						"students"
+						"students",
+						"S1"
 					]
 				}
 			},
@@ -27,6 +97,30 @@
 		},
 		{
 			"name": "Fully Update the student data",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {\r",
+							"    pm.response.to.have.status(200);\r",
+							"});\r",
+							"\r",
+							"pm.test(\"Status code is valid\", function () {\r",
+							"    pm.expect([200, 201, 202]).to.include(pm.response.code);\r",
+							"});\r",
+							"pm.test(\"Status code text is OK\", function () {\r",
+							"    pm.response.to.have.status(\"OK\");\r",
+							"});\r",
+							"pm.test(\"Response time is less than 200ms\", function () {\r",
+							"    pm.expect(pm.response.responseTime).to.be.below(200);\r",
+							"});"
+						],
+						"type": "text/javascript",
+						"packages": {}
+					}
+				}
+			],
 			"request": {
 				"auth": {
 					"type": "noauth"
@@ -59,6 +153,30 @@
 		},
 		{
 			"name": "Adding a student",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 201\", function () {\r",
+							"    pm.response.to.have.status(201);\r",
+							"});\r",
+							"\r",
+							"pm.test(\"Status code is valid\", function () {\r",
+							"    pm.expect([200, 201, 202]).to.include(pm.response.code);\r",
+							"});\r",
+							"pm.test(\"Status code text is Created\", function () {\r",
+							"    pm.response.to.have.status(\"Created\");\r",
+							"});\r",
+							"pm.test(\"Response time is less than 200ms\", function () {\r",
+							"    pm.expect(pm.response.responseTime).to.be.below(200);\r",
+							"});"
+						],
+						"type": "text/javascript",
+						"packages": {}
+					}
+				}
+			],
 			"request": {
 				"auth": {
 					"type": "noauth"
@@ -90,6 +208,30 @@
 		},
 		{
 			"name": "Partially Update the student data",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {\r",
+							"    pm.response.to.have.status(200);\r",
+							"});\r",
+							"\r",
+							"pm.test(\"Status code is valid\", function () {\r",
+							"    pm.expect([200, 201, 202]).to.include(pm.response.code);\r",
+							"});\r",
+							"pm.test(\"Status code text is OK\", function () {\r",
+							"    pm.response.to.have.status(\"OK\");\r",
+							"});\r",
+							"pm.test(\"Response time is less than 200ms\", function () {\r",
+							"    pm.expect(pm.response.responseTime).to.be.below(200);\r",
+							"});"
+						],
+						"type": "text/javascript",
+						"packages": {}
+					}
+				}
+			],
 			"request": {
 				"auth": {
 					"type": "noauth"
@@ -122,6 +264,30 @@
 		},
 		{
 			"name": "Deleting a student data",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {\r",
+							"    pm.response.to.have.status(200);\r",
+							"});\r",
+							"\r",
+							"pm.test(\"Status code is valid\", function () {\r",
+							"    pm.expect([200, 201, 202]).to.include(pm.response.code);\r",
+							"});\r",
+							"pm.test(\"Status code text is OK\", function () {\r",
+							"    pm.response.to.have.status(\"OK\");\r",
+							"});\r",
+							"pm.test(\"Response time is less than 200ms\", function () {\r",
+							"    pm.expect(pm.response.responseTime).to.be.below(200);\r",
+							"});"
+						],
+						"type": "text/javascript",
+						"packages": {}
+					}
+				}
+			],
 			"request": {
 				"auth": {
 					"type": "noauth"

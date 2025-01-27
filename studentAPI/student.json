@@ -63,6 +63,28 @@
         "C++",
         "Java"
       ]
+    },
+    {
+      "id": "S7",
+      "name": "Aman Singh",
+      "gender": "Male",
+      "age": 24,
+      "university": "IIT Madras",
+      "skills": [
+        "Html",
+        "CSS"
+      ]
+    },
+    {
+      "id": "S7",
+      "name": "Aman Singh",
+      "gender": "Male",
+      "age": 24,
+      "university": "IIT Madras",
+      "skills": [
+        "Html",
+        "CSS"
+      ]
     }
   ]
 }
